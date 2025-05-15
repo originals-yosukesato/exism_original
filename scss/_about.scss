@@ -1,0 +1,52 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+#about {
+  position: relative;
+  background-image: url("/img/melanie-weidmann-fegFiToSRsQ-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: grid; /* Gridを使う */
+  grid-template-columns: 30% 70%; /* 30% と 70% の割合で分ける */
+}
+
+.sub-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* 透過背景 */
+  color: white;
+  p {
+    font-size: 32px;
+    text-shadow: 1px 2px #969696;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 25px #0ff, 0 0 30px #0ff, 0 0 35px #0ff;
+  }
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 64px; /* 要素の隙間を調整 */
+  padding-left: 30px;
+  li {
+    display: inline-block;
+    max-width: 720px; /* 適度な幅に調整 */
+    p {
+      background-color: rgba(164, 164, 164, 0.2);
+      padding: 20px;
+      color: v.$white;
+	  font-size: 24px;
+      text-shadow: 1px 2px #969696;
+    }
+  }
+  /* 段々と右に寄せる処理 */
+  @for $i from 1 through 5 {
+    li:nth-child(#{$i}) {
+      margin-left: (40px * $i); /* 順番に20pxずつ右へ */
+    }
+  }
+}
