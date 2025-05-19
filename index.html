@@ -6,22 +6,25 @@
 	<title>株式会社エクスイズム</title>
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<header id="header">
-		<section id="mainvisual">
-			<img src="img/fv.jpg" alt="">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide" style="background-image: url('/img/box/fv_1.webp');"></div>
+				<div class="swiper-slide" style="background-image: url('/img/box/fv_2.webp');"></div>
+				<div class="swiper-slide" style="background-image: url('/img/box/fv_3.webp');"></div>
+				<div class="swiper-slide" style="background-image: url('/img/box/fv_4.webp');"></div>
+				<div class="swiper-slide" style="background-image: url('/img/box/fv_5.webp');"></div>
+			</div>
+		</div>
+		<section class="site-title overlay">
+			<a href="index.html"><img src="img/logo_en.webp" alt=""></a>
+			<a href="index.html"><img src="img/logo_ja.webp" alt=""></a>
+			<p>2003年八王子で誕生して吉祥寺から市ヶ谷へ展開。<br>そして2025年、八王子に還ってきました。<br>これからもXML技術を磨きつづけます。</p>
 		</section>
-		<section class="site-title">
-			<a href="index.html"><img src="img/eXism_logo.png" alt=""></a>
-			<p>2003年八王子で誕生して吉祥寺から市ヶ谷へ展開。<br>そして2025年、八王子に還ってきました。これからもXML技術を磨きつづけます。</p>
-		</section>
-		<nav>
-			<ul class="navi">
-				<li><a href="#contact">お問い合わせ</a></li>
-			</ul>
-		</nav>
 	</header>
 	<main>
 		<section id="about" class="wrapper">
@@ -29,14 +32,27 @@
 				<p>エクスイズムの強み</p>
 			</div>
 			<ul class="feature">
-				<li><p>価値あるコンテンツを最新技術で表現するしくみを提供</p></li>
-				<li><p>持続利用可能なデジタルコンテンツの普及に視点を置き、<br>常に世界標準仕様を模索しています</p></li>
-				<li><p>自動組版、Webパブリッシング、Webと出版・印刷のワンソー<br>スマルチユース、電子出版サービスを中心分野とします</p></li>
-				<li><p>Webと電子と印刷物の垣根をなくすソリューションを提供</p></li>
-				<li><p>XML、XSLT、CSS、HTML5技術の提供</p></li>
+				<li>
+					<p>価値あるコンテンツを最新技術で表現するしくみを提供</p>
+				</li>
+				<li>
+					<p>持続利用可能なデジタルコンテンツの普及に視点を置き、<br>常に世界標準仕様を模索しています</p>
+				</li>
+				<li>
+					<p>自動組版、Webパブリッシング、Webと出版・印刷のワンソー<br>スマルチユース、電子出版サービスを中心分野とします</p>
+				</li>
+				<li>
+					<p>Webと電子と印刷物の垣根をなくすソリューションを提供</p>
+				</li>
+				<li>
+					<p>XML、XSLT、CSS、HTML5技術の提供</p>
+				</li>
 			</ul>
 		</section>
 	</main>
 	<footer></footer>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="js/swiper.js"></script>
+	<script src="js/script.js"></script>
 </body>
 </html>

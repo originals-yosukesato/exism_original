@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #fafafa;
+  background: #FDFEFE;
 }
 
 img {
@@ -23,7 +23,7 @@ img {
 
 a {
   text-decoration: none;
-  color: #24323f;
+  color: #181818;
 }
 
 li {
@@ -46,87 +46,155 @@ li {
      object-fit: cover;
 }
 
+.swiper-container {
+  width: 100vw;
+  height: 100vh;
+}
+.swiper-container .swiper-wrapper {
+  height: 100%;
+}
+.swiper-container .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+.swiper-container .swiper-slide::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Swiperの背景画像調整 */
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+/* ページネーションのデザイン */
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 12px;
+  height: 12px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgb(255, 255, 255);
+}
+
 #header {
   position: relative;
   width: 100%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.3);
 }
+#header .swiper-slide {
+  filter: brightness(0.7) blur(1px); /* 明るさ調整と軽いぼかし */
+  opacity: 0.8;
+}
 #header .site-title {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(250, 250, 250, 0.5);
-  padding: 30px 30px 20px 30px;
+  text-align: left;
+  z-index: 20;
+}
+#header .site-title::before {
+  content: "";
+  position: absolute;
+  top: -20px; /* 上に少し余白 */
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+  border-radius: 8px;
+  z-index: -1;
+}
+#header .site-title img {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 #header .site-title p {
-  margin-top: 20px;
-  font-size: 16px;
+  max-width: 1000px;
+  margin-top: 40px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
   font-weight: bold;
+  line-height: 1.5;
+  /* ✅ テキストの視認性アップ */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-#header nav {
+#header .site-title nav {
   position: absolute;
   top: 50px;
   right: 100px;
 }
-#header nav .navi {
+#header .site-title nav .navi {
   display: flex;
   gap: 20px;
   margin: 0;
   padding: 0;
 }
-#header nav .navi li {
+#header .site-title nav .navi li {
   display: flex;
   align-items: center;
 }
-#header nav .navi a {
+#header .site-title nav .navi a {
   position: relative;
   color: white;
   font-size: 32px;
-  text-shadow: 1px 2px #969696;
   transition: color 0.3s;
 }
-#header nav .navi a::after {
+#header .site-title nav .navi a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -3px;
   width: 0;
   height: 2px;
-  background-color: #fafafa;
+  background-color: #FDFEFE;
   transition: width 0.3s ease;
 }
-#header nav .navi a:hover {
+#header .site-title nav .navi a:hover {
   color: rgba(204, 204, 204, 0.4901960784);
   text-shadow: none;
 }
-#header nav .navi a:hover::after {
+#header .site-title nav .navi a:hover::after {
   width: 100%;
 }
 
 #about {
   position: relative;
-  background-image: url("../img/melanie-weidmann-fegFiToSRsQ-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100vw;
-  height: 100vh;
-  display: grid; /* Gridを使う */
-  grid-template-columns: 30% 70%; /* 30% と 70% の割合で分ける */
+  height: auto;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  background-color: transparent;
 }
 
 .sub-title {
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* 透過背景 */
-  color: white;
+  background: linear-gradient(145deg, #007acc, #003366);
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .sub-title p {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
   font-size: 32px;
-  text-shadow: 1px 2px #969696;
+  border-radius: 8px;
   text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 25px #0ff, 0 0 30px #0ff, 0 0 35px #0ff;
 }
 
@@ -134,33 +202,48 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 64px; /* 要素の隙間を調整 */
-  padding-left: 30px;
+  gap: 64px;
+  padding: 40px 0 20px 0; /* 上下の余白を広げる */
+  /* ✅ 修正: 背景が表示されるように高さを明確に指定 */
+  height: auto;
+  min-height: calc(100vh - 40px); /* 画面全体の高さを維持 */
+  /* ✅ 修正: 背景イメージの指定 */
+  background-image: radial-gradient(circle, #f0f4ff 10%, transparent 10%), radial-gradient(circle, transparent 10%, #ffffff 10%) !important;
+  background-size: 20px 20px !important;
+  background-position: 0 0, 10px 10px !important;
+  background-repeat: repeat !important;
+  z-index: 1;
+  position: relative;
+  overflow: visible;
   /* 段々と右に寄せる処理 */
 }
 .feature li {
   display: inline-block;
-  max-width: 720px; /* 適度な幅に調整 */
+  max-width: 720px;
+  background-color: #e0f2ff; /* ✅ 修正: 透過をやめて完全な色 */
+  border-left: 4px solid #003366; /* ✅ アクセントカラーも調整 */
+  color: #ffffff; /* ✅ テキストカラーも白で見やすく */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .feature li p {
-  background-color: rgba(164, 164, 164, 0.2);
-  padding: 20px;
-  color: #fafafa;
-  font-size: 24px;
-  text-shadow: 1px 2px #969696;
+  color: #003366;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 .feature li:nth-child(1) {
-  margin-left: 40px; /* 順番に20pxずつ右へ */
+  margin-left: 40px;
 }
 .feature li:nth-child(2) {
-  margin-left: 80px; /* 順番に20pxずつ右へ */
+  margin-left: 80px;
 }
 .feature li:nth-child(3) {
-  margin-left: 120px; /* 順番に20pxずつ右へ */
+  margin-left: 120px;
 }
 .feature li:nth-child(4) {
-  margin-left: 160px; /* 順番に20pxずつ右へ */
+  margin-left: 160px;
 }
 .feature li:nth-child(5) {
-  margin-left: 200px; /* 順番に20pxずつ右へ */
+  margin-left: 200px;
 }/*# sourceMappingURL=style.css.map */
