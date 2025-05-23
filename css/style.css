@@ -250,22 +250,114 @@ li {
   margin-left: 200px;
 }
 
+.c-company {
+  background-color: #E0F2FF;
+  padding: 60px 0;
+  color: #ffffff;
+}
+.c-company .wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.c-company .section-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #013366;
+  display: inline-block;
+  color: #013366;
+}
+.c-company .company-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.c-company .company-info li {
+  background: #1e2a38;
+  padding: 20px;
+  border-radius: 10px;
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.c-company .company-info li span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+@media (max-width: 768px) {
+  .c-company .company-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+.executives {
+  margin-top: 60px;
+}
+.executives h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  border-left: 4px solid #00bcd4;
+  padding-left: 12px;
+  color: #013366;
+}
+.executives ul {
+  list-style: none;
+  padding: 0;
+}
+.executives ul li {
+  background: #1e2a38;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.executives ul li span {
+  color: #ccc;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
 .c-s-history {
   position: relative;
-  overflow: visible;
-  padding: 30px 0;
+  overflow: hidden;
+  padding: 60px 0;
+  color: white;
+  height: auto; /* ← fixedな高さは避ける */
+  min-height: 100vh; /* ←必要ならこちら */
 }
-.c-s-history .history-container {
+.c-s-history .wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.c-s-history .wrapper .section-title {
+  font-size: 32px;
+  margin: 0 0 40px 20px;
+  color: #013366;
+  border-bottom: 2px solid #013366;
+  display: inline-block;
+  position: sticky;
+  top: 20px;
+  background: white; /* 背景つけて見やすく */
+  z-index: 10;
+  padding: 10px;
+}
+.c-s-history .wrapper .history-container {
   display: grid;
-  grid-auto-flow: column; /* アイテムを列方向に自動配置 */
-  grid-template-rows: auto auto; /* 2行のレイアウト */
+  grid-auto-flow: column;
+  grid-template-rows: auto auto;
   width: -moz-max-content;
   width: max-content;
   gap: 40px;
-  overflow: hidden; /* スクロールはJavaScriptで制御 */
+  overflow: hidden;
   padding: 20px;
 }
-.c-s-history .history-container .history-item {
+.c-s-history .wrapper .history-container .history-item {
   flex: 0 0 auto;
   width: 700px;
   height: 250px;
@@ -279,42 +371,42 @@ li {
   transition: transform 0.3s ease;
   position: relative;
 }
-.c-s-history .history-container .history-item a {
+.c-s-history .wrapper .history-container .history-item a {
   color: gray;
 }
-.c-s-history .history-container .history-item a:hover {
+.c-s-history .wrapper .history-container .history-item a:hover {
   color: rgb(255, 255, 255);
 }
-.c-s-history .history-container .history-item:nth-child(even) {
+.c-s-history .wrapper .history-container .history-item:nth-child(even) {
   transform: translateX(350px);
 }
-.c-s-history .history-container .history-item.even {
+.c-s-history .wrapper .history-container .history-item.even {
   transform: translate(-300px, 290px);
 }
-.c-s-history .history-container .history-item.odd {
+.c-s-history .wrapper .history-container .history-item.odd {
   transform: translate(-450px, 0);
 }
-.c-s-history .history-container .history-item .history-image img {
+.c-s-history .wrapper .history-container .history-item .history-image img {
   width: 200px;
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 12px;
 }
-.c-s-history .history-container .history-item .history-content {
+.c-s-history .wrapper .history-container .history-item .history-content {
   display: flex;
   flex-direction: column;
 }
-.c-s-history .history-container .history-item .history-content time {
+.c-s-history .wrapper .history-container .history-item .history-content time {
   font-size: 20px;
   color: #aaa;
   margin-bottom: 10px;
 }
-.c-s-history .history-container .history-item .history-content h3 {
+.c-s-history .wrapper .history-container .history-item .history-content h3 {
   font-size: 24px;
   margin-bottom: 10px;
 }
-.c-s-history .history-container .history-item .history-content p {
+.c-s-history .wrapper .history-container .history-item .history-content p {
   font-size: 16px;
   line-height: 1.5;
 }/*# sourceMappingURL=style.css.map */
