@@ -46,45 +46,6 @@ li {
      object-fit: cover;
 }
 
-.swiper-container {
-  width: 100vw;
-  height: 100vh;
-}
-.swiper-container .swiper-wrapper {
-  height: 100%;
-}
-.swiper-container .swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-.swiper-container .swiper-slide::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Swiperの背景画像調整 */
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
-/* ページネーションのデザイン */
-.swiper-pagination-bullet {
-  background-color: rgba(255, 255, 255, 0.6);
-  width: 12px;
-  height: 12px;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: rgb(255, 255, 255);
-}
-
 #header {
   position: relative;
   width: 100%;
@@ -96,10 +57,11 @@ li {
   opacity: 0.8;
 }
 #header .site-title {
+  display: flex;
+  align-items: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 30px;
+  left: 30px;
   text-align: left;
   z-index: 20;
 }
@@ -110,7 +72,7 @@ li {
   left: -20px;
   width: calc(100% + 40px);
   height: calc(100% + 40px);
-  background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
   border-radius: 8px;
   z-index: -1;
 }
@@ -122,10 +84,10 @@ li {
 }
 #header .site-title p {
   max-width: 1000px;
-  margin-top: 40px;
+  padding-left: 20px;
   text-align: center;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.5;
   /* ✅ テキストの視認性アップ */
@@ -168,6 +130,46 @@ li {
 }
 #header .site-title nav .navi a:hover::after {
   width: 100%;
+}
+
+.swiper-container {
+  width: 100vw;
+  height: 100vh;
+}
+.swiper-container .swiper-wrapper {
+  height: 100%;
+}
+.swiper-container .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+.swiper-container .swiper-slide::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Swiperの背景画像調整 */
+.swiper-slide {
+  background-size: cover;
+  background-position: center top;
+  height: 100vh;
+}
+
+/* ページネーションのデザイン */
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 12px;
+  height: 12px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgb(255, 255, 255);
 }
 
 #about {
@@ -246,4 +248,73 @@ li {
 }
 .feature li:nth-child(5) {
   margin-left: 200px;
+}
+
+.c-s-history {
+  position: relative;
+  overflow: visible;
+  padding: 30px 0;
+}
+.c-s-history .history-container {
+  display: grid;
+  grid-auto-flow: column; /* アイテムを列方向に自動配置 */
+  grid-template-rows: auto auto; /* 2行のレイアウト */
+  width: -moz-max-content;
+  width: max-content;
+  gap: 40px;
+  overflow: hidden; /* スクロールはJavaScriptで制御 */
+  padding: 20px;
+}
+.c-s-history .history-container .history-item {
+  flex: 0 0 auto;
+  width: 700px;
+  height: 250px;
+  background-color: #1e2a38;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+.c-s-history .history-container .history-item a {
+  color: gray;
+}
+.c-s-history .history-container .history-item a:hover {
+  color: rgb(255, 255, 255);
+}
+.c-s-history .history-container .history-item:nth-child(even) {
+  transform: translateX(350px);
+}
+.c-s-history .history-container .history-item.even {
+  transform: translate(-300px, 290px);
+}
+.c-s-history .history-container .history-item.odd {
+  transform: translate(-450px, 0);
+}
+.c-s-history .history-container .history-item .history-image img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+}
+.c-s-history .history-container .history-item .history-content {
+  display: flex;
+  flex-direction: column;
+}
+.c-s-history .history-container .history-item .history-content time {
+  font-size: 20px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+.c-s-history .history-container .history-item .history-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.c-s-history .history-container .history-item .history-content p {
+  font-size: 16px;
+  line-height: 1.5;
 }/*# sourceMappingURL=style.css.map */
