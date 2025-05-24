@@ -1,9 +1,10 @@
 .c-s-history {
   position: relative;
+  background-color: #e0f2ff;
   overflow: hidden;
   padding: 60px 0;
   color: white;
-  height: auto; /* ← fixedな高さは避ける */
+  height: auto;
   min-height: 100vh; /* ←必要ならこちら */
 
   .wrapper {
@@ -17,26 +18,31 @@
       color: #013366;
       border-bottom: 2px solid #013366;
       display: inline-block;
-
       position: sticky;
       top: 20px;
-      background: white; /* 背景つけて見やすく */
+      //   background: white; /* 背景つけて見やすく */
       z-index: 10;
       padding: 10px;
     }
 
     .history-container {
+      display: none;
+
       display: grid;
-      grid-auto-flow: column;
+      //   grid-auto-flow: column;
       grid-template-rows: auto auto;
       width: max-content;
       gap: 40px;
-      overflow: hidden;
+      overflow: auto;
       padding: 20px;
+      padding-right: 550px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
 
       .history-item {
+		display: none;
         flex: 0 0 auto;
-        width: 700px;
+        width: 900px;
         height: 250px;
         background-color: #1e2a38;
         padding: 20px;
@@ -47,6 +53,8 @@
         justify-content: center;
         transition: transform 0.3s ease;
         position: relative;
+        scroll-snap-align: start;
+        flex: 0 0 80vw; // 横幅を調整
 
         & a {
           color: gray;
@@ -54,20 +62,7 @@
             color: rgb(255, 255, 255);
           }
         }
-
-        &:nth-child(even) {
-          transform: translateX(350px);
-        }
-
-        &.even {
-          transform: translate(-300px, 290px);
-        }
-
-        &.odd {
-          transform: translate(-450px, 0);
-        }
-
-        .history-image {
+        ￥ .history-image {
           img {
             width: 200px;
             height: 200px;
@@ -98,5 +93,25 @@
         }
       }
     }
+  }
+}
+
+
+.history-container .history-item:nth-child(-n + 3) {
+  display: flex;
+}
+
+.history-show-more {
+  text-align: center;
+  margin-top: 20px;
+
+  #showMoreBtn {
+    background-color: #013366;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
   }
 }

@@ -1,5 +1,5 @@
 .c-company {
-  background-color: #E0F2FF;
+//   background-color: #E0F2FF;
   padding: 60px 0;
   color: #ffffff;
 
@@ -35,6 +35,12 @@
         margin-bottom: 8px;
         color: #ccc;
       }
+	  a {
+		color: #ffffff;
+		&:hover {
+			border-bottom: 1px solid #ffffff;
+		}
+	  }
     }
 
     @media (max-width: 768px) {

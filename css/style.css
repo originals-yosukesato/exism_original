@@ -46,15 +46,70 @@ li {
      object-fit: cover;
 }
 
-#header {
+.swiper-container {
   position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.swiper-container .swiper-wrapper {
+  height: 100%;
+}
+.swiper-container .swiper-slide {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.swiper-container .swiper-slide.swiper-slide-active {
+  opacity: 1;
+}
+.swiper-container .swiper-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 10;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Swiperの背景画像調整 */
+.swiper-slide {
+  background-size: cover;
+  background-position: center top;
+  height: 100vh;
+}
+
+/* ページネーションのデザイン */
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 12px;
+  height: 12px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgb(255, 255, 255);
+}
+
+#header {
+  transition: transform 0.4s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 155px;
+  z-index: 1000;
   background-color: rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+}
+#header.header--hidden {
+  transform: translateY(-100%);
 }
 #header .swiper-slide {
   filter: brightness(0.7) blur(1px); /* 明るさ調整と軽いぼかし */
-  opacity: 0.8;
 }
 #header .site-title {
   display: flex;
@@ -75,9 +130,10 @@ li {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
   border-radius: 8px;
   z-index: -1;
+  pointer-events: none;
 }
 #header .site-title img {
-  width: 400px;
+  width: 200px;
   display: block;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -87,7 +143,7 @@ li {
   padding-left: 20px;
   text-align: center;
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-weight: bold;
   line-height: 1.5;
   /* ✅ テキストの視認性アップ */
@@ -131,45 +187,45 @@ li {
 #header .site-title nav .navi a:hover::after {
   width: 100%;
 }
-
-.swiper-container {
-  width: 100vw;
-  height: 100vh;
+#header .contact_btn {
+  pointer-events: auto;
+  z-index: 9999;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
 }
-.swiper-container .swiper-wrapper {
-  height: 100%;
-}
-.swiper-container .swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-.swiper-container .swiper-slide::before {
+#header .contact_btn::before {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  top: -20px; /* 上に少し余白 */
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+  border-radius: 8px;
+  z-index: -1;
+  pointer-events: none;
+}
+#header .contact_btn a {
+  color: #ffffff;
+  font-size: 1.5rem;
+  z-index: 100;
+  pointer-events: auto;
 }
 
-/* Swiperの背景画像調整 */
-.swiper-slide {
-  background-size: cover;
-  background-position: center top;
-  height: 100vh;
+.overlay {
+  pointer-events: none;
+  position: relative;
 }
 
-/* ページネーションのデザイン */
-.swiper-pagination-bullet {
-  background-color: rgba(255, 255, 255, 0.6);
-  width: 12px;
-  height: 12px;
+.overlay .picture a {
+  pointer-events: auto;
 }
 
-.swiper-pagination-bullet-active {
-  background-color: rgb(255, 255, 255);
+.contact_btn a {
+  pointer-events: auto;
+  z-index: 9999;
 }
 
 #about {
@@ -251,7 +307,6 @@ li {
 }
 
 .c-company {
-  background-color: #E0F2FF;
   padding: 60px 0;
   color: #ffffff;
 }
@@ -285,6 +340,12 @@ li {
   font-weight: bold;
   margin-bottom: 8px;
   color: #ccc;
+}
+.c-company .company-info li a {
+  color: #ffffff;
+}
+.c-company .company-info li a:hover {
+  border-bottom: 1px solid #ffffff;
 }
 @media (max-width: 768px) {
   .c-company .company-info {
@@ -324,10 +385,11 @@ li {
 
 .c-s-history {
   position: relative;
+  background-color: #e0f2ff;
   overflow: hidden;
   padding: 60px 0;
   color: white;
-  height: auto; /* ← fixedな高さは避ける */
+  height: auto;
   min-height: 100vh; /* ←必要ならこちら */
 }
 .c-s-history .wrapper {
@@ -343,23 +405,26 @@ li {
   display: inline-block;
   position: sticky;
   top: 20px;
-  background: white; /* 背景つけて見やすく */
   z-index: 10;
   padding: 10px;
 }
 .c-s-history .wrapper .history-container {
+  display: none;
   display: grid;
-  grid-auto-flow: column;
   grid-template-rows: auto auto;
   width: -moz-max-content;
   width: max-content;
   gap: 40px;
-  overflow: hidden;
+  overflow: auto;
   padding: 20px;
+  padding-right: 550px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
 }
 .c-s-history .wrapper .history-container .history-item {
+  display: none;
   flex: 0 0 auto;
-  width: 700px;
+  width: 900px;
   height: 250px;
   background-color: #1e2a38;
   padding: 20px;
@@ -370,6 +435,8 @@ li {
   justify-content: center;
   transition: transform 0.3s ease;
   position: relative;
+  scroll-snap-align: start;
+  flex: 0 0 80vw;
 }
 .c-s-history .wrapper .history-container .history-item a {
   color: gray;
@@ -377,16 +444,7 @@ li {
 .c-s-history .wrapper .history-container .history-item a:hover {
   color: rgb(255, 255, 255);
 }
-.c-s-history .wrapper .history-container .history-item:nth-child(even) {
-  transform: translateX(350px);
-}
-.c-s-history .wrapper .history-container .history-item.even {
-  transform: translate(-300px, 290px);
-}
-.c-s-history .wrapper .history-container .history-item.odd {
-  transform: translate(-450px, 0);
-}
-.c-s-history .wrapper .history-container .history-item .history-image img {
+.c-s-history .wrapper .history-container .history-item ￥ .history-image img {
   width: 200px;
   height: 200px;
   -o-object-fit: cover;
@@ -409,4 +467,82 @@ li {
 .c-s-history .wrapper .history-container .history-item .history-content p {
   font-size: 16px;
   line-height: 1.5;
+}
+
+.history-container .history-item:nth-child(-n+3) {
+  display: flex;
+}
+
+.history-show-more {
+  text-align: center;
+  margin-top: 20px;
+}
+.history-show-more #showMoreBtn {
+  background-color: #013366;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.c-contact {
+  background: #1e2a38;
+  color: #ffffff;
+  padding: 80px 20px;
+}
+.c-contact .wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.c-contact .section-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  display: inline-block;
+}
+.c-contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.c-contact .contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+.c-contact .contact-form .form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ccc;
+}
+.c-contact .contact-form .form-group input,
+.c-contact .contact-form .form-group textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background: #ffffff;
+  font-size: 1rem;
+  color: #333;
+}
+.c-contact .contact-form .form-group textarea {
+  resize: vertical;
+}
+.c-contact .contact-form .form-submit {
+  text-align: center;
+}
+.c-contact .contact-form .form-submit button {
+  background: #00bcd4;
+  color: #fff;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.c-contact .contact-form .form-submit button:hover {
+  background: #0097a7;
 }/*# sourceMappingURL=style.css.map */

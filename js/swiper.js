@@ -1,15 +1,14 @@
 const swiper = new Swiper(".swiper-container", {
-  effect: "fade", // ✅ ふわっと切り替わる
-  loop: true, // 無限ループ
+  effect: "fade",
+  loop: true,
   autoplay: {
-    delay: 5000, // 5秒ごとに切り替え
+    delay: 5000,
     disableOnInteraction: false,
   },
-  speed: 3000, // 切り替え速度3秒
+  speed: 1500,
   fadeEffect: {
-    crossFade: true, // クロスフェードを有効
+    crossFade: true,
   },
-  // ✅ ページネーション（スライドのインジケーター）
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
