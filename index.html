@@ -7,22 +7,15 @@
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Odibee+Sans&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oxanium:wght@200..800&family=Zen+Old+Mincho&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<header id="header">
-		<section class="site-title overlay">
-			<div class="picture">
-				<a href="index.html"><img src="img/logo_en.webp" alt=""></a>
-				<a href="index.html"><img src="img/logo_ja.webp" alt=""></a>
-			</div>
-			<p>2003年八王子で誕生して吉祥寺から市ヶ谷へ展開。<br>そして2025年、八王子に還ってきました。<br>これからもつかえるXML技術を磨きつづけます。</p>
-		</section>
-		<section class="contact_btn">
-			<a href="#contact">お問い合わせ</a>
-		</section>
-	</header>
-	<main>
 		<section class="swiper-container">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide" style="background-image: url('img/box/fv_01.webp');"></div>
@@ -38,6 +31,20 @@
 				<div class="swiper-slide" style="background-image: url('img/box/fv_11.webp');"></div>
 			</div>
 		</section>
+		<section class="site-title overlay">
+			<div class="picture">
+				<a href="index.html"><img src="img/logo_en.webp" alt=""></a>
+				<a href="index.html"><img src="img/logo_ja.webp" alt=""></a>
+			</div>
+		</section>
+		<section class="site-title-text">
+			<p>2003年八王子で誕生して吉祥寺から市ヶ谷へ展開。<br>そして2025年、八王子に還ってきました。<br>これからもつかえるXML技術を磨きつづけます。</p>
+		</section>
+		<section class="contact_btn">
+			<a href="#contact">お問い合わせ</a>
+		</section>
+	</header>
+	<main>
 		<section id="about" class="wrapper">
 			<div class="sub-title">
 				<p>エクスイズムの強み</p>
@@ -60,6 +67,37 @@
 				</li>
 			</ul>
 		</section>
+		<section id="service">
+			<div class="wrapper">
+				<h2 class="section-title">事業内容</h2>
+				<div class="service_inner">
+					<div class="card">
+						<img src="img/XML.png" alt="XMLアイコン">
+						<div class="card-text">
+							<h3>XML</h3>
+							<p>XMLに基づく構造と意味情報の記述</p>
+							<a href="#">詳細はこちら</a>
+						</div>
+					</div>
+					<div class="card">
+						<img src="img/XSL.png" alt="XSLアイコン">
+						<div class="card-text">
+							<h3>XSL</h3>
+							<p>XSLが構造を視覚情報に変換</p>
+							<a href="#">詳細はこちら</a>
+						</div>
+					</div>
+					<div class="card">
+						<img src="img/CSS.png" alt="CSSアイコン">
+						<div class="card-text">
+							<h3>CSS</h3>
+							<p>CSSでスタイルやレイアウトを制御</p>
+							<a href="#">詳細はこちら</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section id="history" class="c-s c-s-history f-m c-hr-scroll">
 			<div class="wrapper">
 				<h2 class="section-title">会社沿革</h2>
@@ -69,9 +107,27 @@
 					                        <img src="path/to/image2.jpg" alt="Office Image">
 					                    </div> -->
 						<div class="history-content">
+							<time>2025年2月28日</time>
+							<p>株主総会開催　第21期決算報告。</p>
+						</div>
+					</div>
+					<div class="history-item">
+						<!-- <div class="history-image">
+					                        <img src="path/to/image2.jpg" alt="Office Image">
+					                    </div> -->
+						<div class="history-content">
+							<time>2025年2月14日</time>
+							<p>テレワーク定着に伴い役員執務室を新宿区市谷から八王子市東町に移転。</p>
+						</div>
+					</div>
+					<div class="history-item">
+						<!-- <div class="history-image">
+					                        <img src="path/to/image2.jpg" alt="Office Image">
+					                    </div> -->
+						<div class="history-content">
 							<time>2024年5月31日</time>
-							<p>はてな社「GigaViewer for Apps」の小説用ビューワに、Vivliostyle.jsが採用されました。 事例紹介　→　<a
-									href="https://vivliostyle.org/ja/blog/2024/04/30/gigaviewer-adopts-vivliostyle-js/">https://vivliostyle.org/ja/blog/2024/04/30/gigaviewer-adopts-vivliostyle-js/</a>
+							<p>はてな社「GigaViewer for Apps」の小説用ビューワに、Vivliostyle.jsが採用されました。<br>事例紹介　→　<a
+									href="https://vivliostyle.org/ja/blog/2024/04/30/gigaviewer-adopts-vivliostyle-js/">https://vivliostyle.org/ja/blog/2024/04/30/gigaviewer-adopts-vivliostyle-js/</a><br>
 								弊社の推奨するVivliostyleはEPUBコンテンツの電子書籍リーダとしてWeb閲覧できるオープンソースです。</p>
 						</div>
 					</div>
@@ -377,7 +433,13 @@
 		<section id="contact" class="c-s c-contact">
 			<div class="wrapper">
 				<h2 class="section-title">お問い合わせ</h2>
-				<form action="#" method="post" class="contact-form">
+				<form action="https://formsubmit.co/your@email.com" method="POST" class="contact-form">
+					<!-- 送信完了後のリダイレクト先 -->
+					<input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+					<!-- CAPTCHA 無効化 -->
+					<input type="hidden" name="_captcha" value="false">
+					<!-- メールの件名 -->
+					<input type="hidden" name="_subject" value="【サイトからのお問い合わせ】">
 					<div class="form-group">
 						<label for="name">お名前</label>
 						<input type="text" id="name" name="name" required placeholder="例：山田 太郎">

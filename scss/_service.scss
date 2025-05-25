@@ -1,0 +1,63 @@
+#service {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+  .wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .section-title {
+      font-size: 32px;
+      margin: 0 0 40px 20px;
+      color: #013366;
+      border-bottom: 2px solid #013366;
+      display: inline-block;
+      position: static;
+      top: 20px;
+      z-index: 10;
+      padding: 10px;
+    }
+    .service_inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      .card {
+        display: flex;
+        align-items: center; /* ← 画像とテキストを縦中央揃え */
+        gap: 20px;
+        width: 100%;
+
+        img {
+          width: 100px;
+          height: auto;
+          flex-shrink: 0;
+          display: block;
+        }
+
+        .card-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: left;
+        }
+
+        h3,
+        p,
+        a {
+          margin: 0 0 8px 0;
+        }
+
+        a {
+          color: #013366;
+          text-decoration: underline;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,12 @@
-const swiper = new Swiper(".swiper-container", {
-  effect: "fade",
+new Swiper(".swiper-container", {
   loop: true,
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-  speed: 1500,
+  effect: "fade", // フェードで切り替える
   fadeEffect: {
-    crossFade: true,
+    crossFade: true, // ふわっと切り替え（前のスライドと被るように）
   },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+  speed: 2000, // ← スライドの切り替えにかかる時間（ms）
+  autoplay: {
+    delay: 7000, // ← 各スライドの表示時間（ms）
+    disableOnInteraction: false, // ユーザー操作後も止まらない
   },
 });

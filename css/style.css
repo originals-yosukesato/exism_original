@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Zen Old Mincho", serif;
   background: #FDFEFE;
 }
 
@@ -96,17 +96,13 @@ li {
 
 #header {
   transition: transform 0.4s ease;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  height: 155px;
+  height: 100vh;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.3);
   pointer-events: auto;
-}
-#header.header--hidden {
-  transform: translateY(-100%);
 }
 #header .swiper-slide {
   filter: brightness(0.7) blur(1px); /* 明るさ調整と軽いぼかし */
@@ -137,17 +133,6 @@ li {
   display: block;
   margin: 0 auto;
   margin-bottom: 10px;
-}
-#header .site-title p {
-  max-width: 1000px;
-  padding-left: 20px;
-  text-align: center;
-  color: #ffffff;
-  font-size: 0.8rem;
-  font-weight: bold;
-  line-height: 1.5;
-  /* ✅ テキストの視認性アップ */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 #header .site-title nav {
   position: absolute;
@@ -191,9 +176,8 @@ li {
   pointer-events: auto;
   z-index: 9999;
   position: absolute;
-  top: 50%;
+  top: 30px;
   right: 30px;
-  transform: translateY(-50%);
 }
 #header .contact_btn::before {
   content: "";
@@ -215,7 +199,6 @@ li {
 }
 
 .overlay {
-  pointer-events: none;
   position: relative;
 }
 
@@ -226,6 +209,40 @@ li {
 .contact_btn a {
   pointer-events: auto;
   z-index: 9999;
+}
+
+.site-title-text {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  z-index: 20;
+}
+.site-title-text::before {
+  content: "";
+  position: absolute;
+  top: -20px; /* 上に少し余白 */
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+  border-radius: 8px;
+  z-index: -1;
+  pointer-events: none;
+}
+.site-title-text p {
+  max-width: 1000px;
+  padding-left: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+  /* ✅ テキストの視認性アップ */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #about {
@@ -304,6 +321,64 @@ li {
 }
 .feature li:nth-child(5) {
   margin-left: 200px;
+}
+
+#service {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+#service .wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+#service .wrapper .section-title {
+  font-size: 32px;
+  margin: 0 0 40px 20px;
+  color: #013366;
+  border-bottom: 2px solid #013366;
+  display: inline-block;
+  position: static;
+  top: 20px;
+  z-index: 10;
+  padding: 10px;
+}
+#service .wrapper .service_inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+#service .wrapper .service_inner .card {
+  display: flex;
+  align-items: center; /* ← 画像とテキストを縦中央揃え */
+  gap: 20px;
+  width: 100%;
+}
+#service .wrapper .service_inner .card img {
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+  display: block;
+}
+#service .wrapper .service_inner .card .card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+#service .wrapper .service_inner .card h3,
+#service .wrapper .service_inner .card p,
+#service .wrapper .service_inner .card a {
+  margin: 0 0 8px 0;
+}
+#service .wrapper .service_inner .card a {
+  color: #013366;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .c-company {

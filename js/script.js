@@ -57,3 +57,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
+//.site-titleをふわっと表示
+gsap.from(".site-title-text", {
+  opacity: 0,
+  scale: 0.7,
+  duration: 2.5, // ← ゆっくりに！
+  ease: "power3.out", // ← さらに柔らかいイーズ
+});
