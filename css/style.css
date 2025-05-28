@@ -481,6 +481,28 @@ li {
   font-size: 1.2rem;
 }
 
+.accordion-content {
+  display: none;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.accordion-title {
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.accordion-title::after {
+  content: "＋";
+  float: right;
+  transition: transform 0.3s;
+}
+
+.accordion-title.active::after {
+  content: "－";
+}
+
 #service {
   display: flex;
   justify-content: center;
@@ -702,21 +724,25 @@ li {
   }
 }
 
-.executives {
+.executives,
+.message {
   margin-top: 60px;
 }
-.executives h3 {
+.executives h3,
+.message h3 {
   font-size: 24px;
   margin-bottom: 20px;
   border-left: 4px solid #00bcd4;
   padding-left: 12px;
   color: #013366;
 }
-.executives ul {
+.executives ul,
+.message ul {
   list-style: none;
   padding: 0;
 }
-.executives ul li {
+.executives ul li,
+.message ul li {
   background: #1e2a38;
   padding: 15px 20px;
   border-radius: 8px;
@@ -726,7 +752,8 @@ li {
   display: flex;
   flex-direction: column;
 }
-.executives ul li span {
+.executives ul li span,
+.message ul li span {
   color: #ccc;
   font-weight: bold;
   margin-bottom: 4px;
@@ -807,6 +834,10 @@ li {
   gap: 20px;
   margin: 10px 0;
   color: #013366;
+}
+.history-container .year-group a {
+  color: #007acc;
+  text-decoration: underline;
 }
 
 .history-container .year-group.active {

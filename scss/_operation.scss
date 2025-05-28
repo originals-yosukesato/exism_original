@@ -91,3 +91,25 @@
     }
   }
 }
+
+.accordion-content {
+	display: none;
+	padding: 10px 0;
+	transition: all 0.3s ease;
+  }
+  
+  .accordion-title {
+	cursor: pointer;
+	font-weight: bold;
+	margin-top: 1em;
+  }
+  
+  .accordion-title::after {
+	content: "＋";
+	float: right;
+	transition: transform 0.3s;
+  }
+  
+  .accordion-title.active::after {
+	content: "－";
+  }

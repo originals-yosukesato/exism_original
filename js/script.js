@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 既存のコード（ScrollTriggerなど）はそのままでOK！
 });
-gsap.utils.toArray(".policy li, .feature li, .company-info li, .service-inner .card, .executives li").forEach((item) => {
+gsap.utils.toArray(".policy li, .feature li, .company-info li, .service-inner .card, .executives li, .message li").forEach((item) => {
   gsap.from(item, {
     opacity: 0,
     y: 50,
@@ -111,3 +111,24 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+//アコーディオンメニューの開閉
+document.addEventListener("DOMContentLoaded", function () {
+  const titles = document.querySelectorAll(".accordion-title");
+
+  titles.forEach((title) => {
+    title.addEventListener("click", () => {
+      const content = title.nextElementSibling;
+      const isOpen = title.classList.contains("active");
+
+      // 一度すべて閉じる（←不要なら削除OK）
+      document.querySelectorAll(".accordion-content").forEach((c) => (c.style.display = "none"));
+      document.querySelectorAll(".accordion-title").forEach((t) => t.classList.remove("active"));
+
+      // 選択された項目だけ開く
+      if (!isOpen) {
+        content.style.display = "block";
+        title.classList.add("active");
+      }
+    });
+  });
+});
