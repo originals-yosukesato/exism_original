@@ -1,20 +1,47 @@
+@use "variables" as v;
+@use "mixin" as m;
+
 .c-company {
-//   background-color: #E0F2FF;
-  padding: 60px 0;
+  //   background-color: #E0F2FF;
+  padding: 60px 20px;
   color: #ffffff;
+  .menu-img {
+    background-image: url(../img/box/company_img.jpeg);
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .fixed-bg {
+    height: 300px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+	@include m.tab {
+		height: clamp(150px,2.5vh,300px)
+	}
+
+    .section-title {
+      font-size: clamp(1.4rem, 2.5vw, 3rem); // ← レスポンシブフォント
+      font-weight: bold;
+      margin: 0 0 40px 20px;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      padding: 10px;
+    }
+  }
 
   .wrapper {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
-  }
-
-  .section-title {
-    font-size: 32px;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #013366;
-    display: inline-block;
-	color: #013366;
   }
 
   .company-info {
@@ -35,12 +62,12 @@
         margin-bottom: 8px;
         color: #ccc;
       }
-	  a {
-		color: #ffffff;
-		&:hover {
-			border-bottom: 1px solid #ffffff;
-		}
-	  }
+      a {
+        color: #ffffff;
+        &:hover {
+          border-bottom: 1px solid #ffffff;
+        }
+      }
     }
 
     @media (max-width: 768px) {

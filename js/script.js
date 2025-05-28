@@ -39,29 +39,75 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href");
-    if (targetId === "#" || targetId === "") return;
-
-    const target = document.querySelector(targetId);
-    if (target) {
-      e.preventDefault();
-      const yOffset = -40;
-      const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({
-        top: y,
-        behavior: "smooth",
-      });
-    }
-  });
-});
-
 //.site-titleをふわっと表示
 gsap.from(".site-title-text", {
   opacity: 0,
-  scale: 0.7,
-  duration: 2.5, // ← ゆっくりに！
-  ease: "power3.out", // ← さらに柔らかいイーズ
+  scale: 0.5,
+  y: 30,
+  duration: 5, // アニメーションの長さ（ふわっと感）
+  delay: 1, // ⏰ 3秒待ってからスタート
+  ease: "expo.out", // 柔らかく止まる
 });
+
+//アコーディオン
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".year-toggle");
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const nextGroup = this.nextElementSibling;
+      nextGroup.classList.toggle("active");
+    });
+  });
+
+  // 最初は最新年だけ開いておく（例：2025）
+  const firstGroup = document.querySelector(".year-group");
+  if (firstGroup) firstGroup.classList.add("active");
+});
+
+//スムーススクロール
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+
+      if (href === "#") {
+        // hrefが「#」のみなら index.html に遷移
+        window.location.href = "index.html";
+        return;
+      }
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+});
+
+//ページジャンプスムーススクロール
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("fade-in");
+
+  const hash = window.location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300); // フェードイン後にスクロール
+    }
+  }
+});
+
+//
+window.addEventListener("DOMContentLoaded", () => {
+  // URLに#が付いてたら、履歴を上書きして削除する
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname);
+  }
+});
+

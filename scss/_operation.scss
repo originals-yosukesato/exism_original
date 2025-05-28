@@ -1,0 +1,93 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+#operation {
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden;
+  padding: 60px 20px;
+  color: white;
+  height: auto;
+  min-height: 100vh; /* ←必要ならこちら */
+  .menu-img {
+    background-image: url(../img/box/operation_img.webp);
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .fixed-bg {
+    height: 300px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include m.tab {
+      height: clamp(150px, 2.5vh, 300px);
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 2.5vw, 3rem); // ← レスポンシブフォント
+      font-weight: bold;
+      margin: 0 0 40px 20px;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      padding: 10px;
+    }
+  }
+}
+
+.policy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 64px;
+  padding: 40px 20px 20px 20px; /* 上下の余白を広げる */
+  box-sizing: border-box;
+
+  /* ✅ 修正: 背景が表示されるように高さを明確に指定 */
+  height: auto;
+  min-height: calc(100vh - 40px); /* 画面全体の高さを維持 */
+
+  /* ✅ 修正: 背景イメージの指定 */
+  //   background-image: radial-gradient(circle, #f0f4ff 10%, transparent 10%), radial-gradient(circle, transparent 10%, #ffffff 10%) !important;
+  background-size: 20px 20px !important;
+  background-position: 0 0, 10px 10px !important;
+  background-repeat: repeat !important;
+  z-index: 1;
+  position: relative;
+  overflow: visible;
+  @include m.tab {
+    justify-content: flex-start;
+    min-height: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  li {
+    display: inline-block;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #e0f2ff; /* ✅ 修正: 透過をやめて完全な色 */
+    border-left: 4px solid #003366; /* ✅ アクセントカラーも調整 */
+    color: #013366; /* ✅ テキストカラーも白で見やすく */
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    p {
+      color: #003366;
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+	  font-size: 1.2rem;
+    }
+  }
+}

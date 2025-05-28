@@ -3,30 +3,43 @@
 
 #about {
   position: relative;
-  width: 100vw;
+  background-color: #ffffff;
+  overflow: hidden;
+  padding: 60px 20px;
+  color: white;
   height: auto;
-  display: grid;
-  grid-template-columns: 30% 70%;
-  background-color: transparent;
-}
+  min-height: 100vh; /* ←必要ならこちら */
+  .menu-img {
+    background-image: url(../img/box/about_img.webp);
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    border-radius: 20px;
+  }
 
-.sub-title {
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(145deg, #007acc, #003366);
-  color: #ffffff;
-  text-align: center;
-  padding: 15px 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  .fixed-bg {
+    height: 300px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include m.tab {
+      height: clamp(150px, 2.5vh, 300px);
+    }
 
-  p {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 40px;
-    font-size: 32px;
-    border-radius: 8px;
-    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 25px #0ff, 0 0 30px #0ff, 0 0 35px #0ff;
+    .section-title {
+      font-size: clamp(1.4rem, 2.5vw, 3rem); // ← レスポンシブフォント
+      font-weight: bold;
+      margin: 0 0 40px 20px;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      padding: 10px;
+    }
   }
 }
 
@@ -35,30 +48,38 @@
   flex-direction: column;
   justify-content: center;
   gap: 64px;
-  padding: 40px 0 20px 0; /* 上下の余白を広げる */
-//   margin-top: 40px; /* 見出しとの間隔を調整 */
-//   margin-bottom: 40px; /* 下の要素との間隔を調整 */
+  padding: 40px 20px 20px 20px; /* 上下の余白を広げる */
+  box-sizing: border-box;
 
   /* ✅ 修正: 背景が表示されるように高さを明確に指定 */
   height: auto;
   min-height: calc(100vh - 40px); /* 画面全体の高さを維持 */
 
   /* ✅ 修正: 背景イメージの指定 */
-  background-image: radial-gradient(circle, #f0f4ff 10%, transparent 10%), radial-gradient(circle, transparent 10%, #ffffff 10%) !important;
+  //   background-image: radial-gradient(circle, #f0f4ff 10%, transparent 10%), radial-gradient(circle, transparent 10%, #ffffff 10%) !important;
   background-size: 20px 20px !important;
   background-position: 0 0, 10px 10px !important;
   background-repeat: repeat !important;
   z-index: 1;
   position: relative;
   overflow: visible;
+  @include m.tab {
+    justify-content: flex-start;
+    min-height: 0;
+    justify-content: center;
+    align-items: center;
+  }
 
   li {
     display: inline-block;
-    max-width: 720px;
+	width: 100%;
+    max-width: 1000px;
     background-color: #e0f2ff; /* ✅ 修正: 透過をやめて完全な色 */
     border-left: 4px solid #003366; /* ✅ アクセントカラーも調整 */
     color: #ffffff; /* ✅ テキストカラーも白で見やすく */
     padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -69,10 +90,18 @@
     }
   }
 
-  /* 段々と右に寄せる処理 */
-  @for $i from 1 through 5 {
-    li:nth-child(#{$i}) {
-      margin-left: (40px * $i);
-    }
-  }
+  //   /* 段々と右に寄せる処理 */
+  //   @for $i from 1 through 5 {
+  //     li:nth-child(#{$i}) {
+  //       margin-left: (40px * $i);
+  //     }
+  //   }
+  //   @include m.tab {
+  //     li {
+  //       margin-left: auto !important;
+  //       margin-right: auto !important;
+  //       width: 90%; // ✅ 幅を揃える（例：画面の90%）
+  //       max-width: 500px; // ✅ PCと同じく上限ありでもOK
+  //     }
+  //   }
 }

@@ -1,104 +1,61 @@
+@use "variables" as v;
+@use "mixin" as m;
+
 .c-s-history {
   position: relative;
-  background-color: #e0f2ff;
+  background-color: #ffffff;
   overflow: hidden;
-  padding: 60px 0;
+  padding: 60px 20px;
   color: white;
   height: auto;
   min-height: 100vh; /* ←必要ならこちら */
+  .menu-img {
+    background-image: url(../img/box/history_img.jpeg);
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .fixed-bg {
+    height: 300px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    @include m.tab {
+      height: clamp(150px, 2.5vh, 300px);
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 2.5vw, 3rem); // ← レスポンシブフォント
+      font-weight: bold;
+      margin: 0 0 40px 20px;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      padding: 10px;
+    }
+  }
 
   .wrapper {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 
-    .section-title {
-      font-size: 32px;
-      margin: 0 0 40px 20px;
-      color: #013366;
-      border-bottom: 2px solid #013366;
-      display: inline-block;
-      position: sticky;
-      top: 20px;
-      //   background: white; /* 背景つけて見やすく */
-      z-index: 10;
-      padding: 10px;
-    }
-
     .history-container {
-      display: none;
-
-      display: grid;
-      //   grid-auto-flow: column;
-      grid-template-rows: auto auto;
-      width: max-content;
-      gap: 40px;
-      overflow: auto;
+      display: flex; /* ← grid じゃなく flexで縦並びに！ */
+      flex-direction: column;
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 20px;
-      padding-right: 550px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-
-      .history-item {
-		display: none;
-        flex: 0 0 auto;
-        width: 900px;
-        height: 250px;
-        background-color: #1e2a38;
-        padding: 20px;
-        border-radius: 8px;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        transition: transform 0.3s ease;
-        position: relative;
-        scroll-snap-align: start;
-        flex: 0 0 80vw; // 横幅を調整
-
-        & a {
-          color: gray;
-          &:hover {
-            color: rgb(255, 255, 255);
-          }
-        }
-        ￥ .history-image {
-          img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-          }
-        }
-
-        .history-content {
-          display: flex;
-          flex-direction: column;
-
-          time {
-            font-size: 20px;
-            color: #aaa;
-            margin-bottom: 10px;
-          }
-
-          h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-          }
-
-          p {
-            font-size: 16px;
-            line-height: 1.5;
-          }
-        }
-      }
+      gap: 40px;
     }
   }
-}
-
-
-.history-container .history-item:nth-child(-n + 3) {
-  display: flex;
 }
 
 .history-show-more {
@@ -114,4 +71,31 @@
     cursor: pointer;
     font-size: 16px;
   }
+}
+
+.history-container .year-group {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  margin: 10px 0;
+  color: #013366;
+}
+.history-container .year-group.active {
+  display: flex;
+}
+
+.year-toggle {
+  background-color: #013366;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.3s;
+}
+.year-toggle:hover {
+  background-color: #005199;
 }

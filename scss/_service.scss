@@ -1,42 +1,88 @@
+@use "variables" as v;
+@use "mixin" as m;
+
 #service {
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 40px 20px;
+  padding: 60px 20px;
   flex-wrap: wrap;
+
+  .menu-img {
+    background-image: url(../img/box/service_img.jpg);
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    border-radius: 20px;
+    pointer-events: none;
+  }
+
+  .fixed-bg {
+    height: 300px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    @include m.tab {
+      height: clamp(150px, 2.5vh, 300px);
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 2.5vw, 3rem); // ← レスポンシブフォント
+      font-weight: bold;
+      margin: 0 0 40px 20px;
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      padding: 10px;
+    }
+  }
   .wrapper {
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 
-    .section-title {
-      font-size: 32px;
-      margin: 0 0 40px 20px;
-      color: #013366;
-      border-bottom: 2px solid #013366;
-      display: inline-block;
-      position: static;
-      top: 20px;
-      z-index: 10;
-      padding: 10px;
-    }
     .service_inner {
       display: flex;
       justify-content: space-between;
       gap: 20px;
+      @include m.sp {
+        display: block;
+        flex-direction: column;
+        align-items: center;
+      }
 
       .card {
         display: flex;
         align-items: center; /* ← 画像とテキストを縦中央揃え */
         gap: 20px;
-        width: 100%;
+        width: calc(33.333% - 20px);
+        @include m.sp {
+          display: block;
+          flex-direction: column; // 画像が上、テキストが下
+          align-items: center;
+          width: 90%; // 画面幅に対して90%
+          max-width: 500px;
+          margin: 0 auto; // 中央寄せ
+        }
 
         img {
           width: 100px;
           height: auto;
           flex-shrink: 0;
           display: block;
+          @include m.sp {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+            margin: 0 auto;
+          }
         }
 
         .card-text {
@@ -44,20 +90,54 @@
           flex-direction: column;
           justify-content: center;
           text-align: left;
+          @include m.sp {
+            width: 100%;
+            text-align: center;
+          }
         }
 
         h3,
         p,
         a {
           margin: 0 0 8px 0;
+          @include m.sp {
+            width: 100%;
+          }
         }
 
         a {
           color: #013366;
           text-decoration: underline;
           font-weight: bold;
+          @include m.sp {
+            display: inline-block;
+            margin-top: 10px;
+          }
         }
       }
     }
+  }
+}
+
+.detail-content {
+  display: none;
+  padding-top: 10px;
+  line-height: 1.7;
+}
+.detail-toggle {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0077cc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .card-text p,
+  .detail-content {
+    font-size: 15px;
+  }
+  .detail-toggle {
+    font-size: 15px;
+    padding: 10px 0;
   }
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>事業内容詳細 xml ｜株式会社エクスイズム</title>
+	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Odibee+Sans&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oxanium:wght@200..800&family=Zen+Old+Mincho&display=swap"
+		rel="stylesheet">
+	<style>
+		body {
+			font-family: "Zen Old Mincho", serif;
+			background: #fdfdfd;
+			color: #333;
+			line-height: 1.8;
+			padding: 40px 20px;
+			max-width: 960px;
+			margin: auto;
+			opacity: 0;
+			transition: opacity 0.8s ease;
+		}
+
+		body.fade-in {
+			opacity: 1;
+		}
+
+		h1 {
+			font-size: 2em;
+			margin-bottom: 20px;
+		}
+
+		h2 {
+			font-size: 1.6em;
+			margin-top: 40px;
+			border-left: 5px solid #2b3d4f;
+			padding-left: 10px;
+			color: #2b3d4f;
+		}
+
+		p {
+			margin-bottom: 1em;
+		}
+
+		a {
+			color: #007acc;
+			text-decoration: underline;
+		}
+
+		.back {
+			margin-top: 40px;
+			display: inline-block;
+			padding: 10px 20px;
+			background: #2b3d4f;
+			color: #fff;
+			text-decoration: none;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+<body>
+	<h1>事業内容 詳細</h1>
+	<section id="xml">
+		<h2>■ XML</h2>
+		<p>XMLは拡張性の高いマークアップ言語です。エクスイズムでは全文XML化などのサービス支援を実施します。</p>
+		<p>XML（eXtensible Markup Language）はかつてのSGMLを単純化した拡張性に優れたマークアップ言語です。HTMLとXMLの母体SGML（Standard Generalized Markup
+			Language）は、電子出版物や大量に及ぶ文書を効率的に活用するために、国際標準化機構（ISO）によって定義されたマークアップ言語でした。XMLを使えば、HTMLでは不可能だった、「同一データを異なる複数の形態で表示する」つまり「ワンソースマルチユース」が実現します。
+		</p>
+		<p>拡張子は「.xml」で、技術の標準化を目指す非営利団体「W3C」が1998年に開発したオープンな規格です。</p>
+		<p>XMLは異なるシステム間でのデータのやりとりをするために開発されているため、拡張性の高さが大きな特徴であり、エクスイズムでは全文XML化、その活用サービス支援を実施しています。</p>
+		<p>🔗 <a href="https://www.antenna.co.jp/xml/xmllist/" target="_blank">XML資料室 アンテナハウス</a><br> 🔗 <a
+				href="https://www.antenna.co.jp/xml/xmllist/xml-20010920.pdf" target="_blank">XML仕様の概説 PDF</a></p>
+	</section>
+	<a href="index.html#service" class="back">← 事業内容に戻る</a>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			document.body.classList.add('fade-in');
+			const hash = window.location.hash;
+			if (hash) {
+				const target = document.querySelector(hash);
+				if (target) {
+					setTimeout(() => {
+						target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					}, 300);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

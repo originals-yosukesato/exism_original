@@ -3,11 +3,13 @@
 @use 'variables' as v;
 @use 'mixin' as m;
 @use 'common';
+@use 'header';
+@use 'footer';
+@use 'about';
+@use 'operation';
 @use 'button';
 @use 'hamburger';
 @use 'scrolldown';
-@use 'header';
-@use 'about';
 @use 'service';
 @use 'company';
 @use 'history';
