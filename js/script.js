@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 既存のコード（ScrollTriggerなど）はそのままでOK！
 });
-gsap.utils.toArray(".company-info li, .executives li").forEach((item) => {
+gsap.utils.toArray(".policy li, .feature li, .company-info li, .service-inner .card, .executives li").forEach((item) => {
   gsap.from(item, {
     opacity: 0,
     y: 50,
